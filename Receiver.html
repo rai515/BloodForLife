@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head >
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin Receiver</title> 
+        <link rel="HTML" href="Donor.html">
+         <link rel="HTML" href="Receiver.html">
+         <link rel="HTML" href="BloodAvailability.html">
+         <link rel="HTML" href="LifeSavers.html">
+         <link rel="HTML" href="About.html">
+         <link rel="HTML" href="index.html">
+         <link rel="HTML" href="Botboy.html">
+         <link rel="stylesheet" href="Styles.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <style>
+            
+        .date-time {
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+           
+        }
+        .date-time span {
+            font-size: 1.2em;
+        }
+           
+        .container {
+            margin-top: 30px;
+        }
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+        }
+        button {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        /* Table Styles */
+
+        /* Make the table responsive */
+        @media only screen and (max-width: 300px) {
+        table, thead, tbody, th, td {
+            display: block;
+        }
+
+        /* Hide table headers (but not display: none;, for accessibility) */
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+        
+
+        tr {
+            border: 1px solid #ccc;
+        }
+
+        td {
+            /* Behave like a "row" */
+            border: none;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 50%;
+        }
+
+        td:before {
+            /* Now like a table header */
+            position: absolute;
+            /* Top/left values mimic padding */
+            top: 6px;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
+
+        /*
+        Label the data
+        */
+        td:nth-of-type(1):before { content: "Column 1"; }
+        td:nth-of-type(2):before { content: "Column 2"; }
+        td:nth-of-type(3):before { content: "Column 3"; }
+        }
+
+        /* Add some padding and a blue border */
+        table {
+        border-collapse: collapse;
+        width: 100%;
+        padding: 5px;
+        border: 1px solid rgb(243, 243, 243);
+        display: table;
+        margin-left: 0%;
+        }
+
+        /* Add some padding and a blue border to the table headers */
+        th {
+        border: 1px solid rgb(121, 203, 245);
+        padding: 10px;
+        background-color: #8c96b9;
+        }
+
+        /* Add some padding to the table cells */
+        td {
+        border: 1px solid rgb(0, 0, 0);
+        padding: 10px;
+        }
+
+        </style>
+        <script>
+            function validateForm() {
+                var name = document.forms["donorForm"]["name"].value;
+                var email = document.forms["donorForm"]["email"].value;
+                var contact = document.forms["donorForm"]["contact"].value;
+                var dob = document.forms["donorForm"]["dob"].value;
+                var gender = document.forms["donorForm"]["gender"].value;
+                var blood_group = document.forms["donorForm"]["blood_group"].value;
+    
+                if (name == "" || email == "" || contact == "" || dob == "" || gender == "" || blood_group == "") {
+                    alert("All fields must be filled out");
+                    return false;
+                }
+                return function submit(){
+                alert("Your Application Has Been Submitted");
+                    
+                }
+            }
+        </script>
+     </head>
+<body style="background-color: rgb(217, 242, 233);">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">Blood For Life 🏥</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Donor.html">Donor</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="BloodAvailability.html">Blood Availability</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Receiver.html">Reciever</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="About.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Botboy.html">Chat Bot</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Table -->
+    <div class="container">
+    <h2 style="margin-top: 30px;">Blood Giving and Recieving Details</h2>
+
+    <table>
+    <thead>
+        <tr>
+        <th>Blood Types</th>
+        <th>Gives</th>
+        <th>Recieves</th>
+        </tr>
+    </thead>
+    <tbody style="background-color: #f0e3e3;">
+        <tr>
+        <td>A+</td>
+        <td>A+,AB+</td>
+        <td>A+,A-,O+,O-</td>
+        </tr>
+        <tr>
+            <td>O+</td>
+            <td>O+,A+,B+,AB+</td>
+            <td>O+,O-</td>
+        </tr>
+        <tr>
+            <td>B+</td>
+            <td>B+,AB+</td>
+            <td>B+,B-,O+,O-</td>
+        </tr>
+        <tr>
+            <td>AB+</td>
+            <td>AB+</td>
+            <td>Everyone</td>
+        </tr>
+        <tr>
+            <td>A-</td>
+            <td>A+,A-,AB+,AB-</td>
+            <td>A-,O-</td>
+        </tr>
+        <tr>
+            <td>O-</td>
+            <td>Everyone</td>
+            <td>O-</td>
+        </tr>
+        <tr>
+            <td>B-</td>
+            <td>B+,B-,AB+,AB-</td>
+            <td>B-,O-</td>
+        </tr>
+        <tr>
+            <td>AB-</td>
+            <td>AB+,AB-</td>
+            <td>AB-,A-,B-,O-</td>
+        </tr>
+    </tbody>
+    </table>
+</div>
+   
+    <div class="container">
+        <h2>Blood Reciever Form</h2>
+        <form style="background-color: rgb(185, 185, 200);" name="google-sheet" onsubmit="return handleSubmit(event)">
+            <div class="date-time">
+                <span id="Sdate">Current Date and Time</span>
+            </div>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter name" name="Name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email" name="Email" 
+                minlength="14" maxlength="50" 
+                required oninvalid="this.setCustomValidity('Please enter a valid email')" oninput="setCustomValidity('')">
+            </div>
+            <div class="form-group">
+              <label for="Contact">Contact:</label>
+              <input type="text" class="form-control" id="Contact" placeholder="Enter contact" name="Contact" 
+                     pattern="\d{10}"  required
+                     oninput="this.setCustomValidity(this.value.length === 10 ? '' : 'Enter a valid mobile number')"
+                     maxlength="10">
+          </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" class="form-control" id="dob" name="DoB" min="1990-01-01" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select class="form-control" id="gender" name="Gender" required>
+                    <option value="" disabled selected>Select your Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="blood_group">Blood Group:</label>
+                <select class="form-control" id="blood_group" name="Blood_Group" required>
+                    <option value="" disabled selected>Select your Blood Group</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                </select>
+            </div>
+            
+            <button style="background-color: #6266e0;" type="reset" class="btn btn-primary">Reset</button> 
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h2>About</h2>
+                <p><a href="About.html">Welcome to <span>BloodForLife 🏥</span>,
+                     a platform for connecting blood donors and those in need.
+                    </a></p>
+    
+            </div>
+            <div class="footer-section">
+                <h2>Address</h2>
+                <p>Azamgarh, UP, 276001,<br> India</p>
+            </div>
+            <div class="footer-section">
+                <h2>Contact</h2>
+                Email:-  rai515sahab@gmail.com<br>ashutoshpatel276001@gmail.com<br>
+                Phone:- (91) XXXX-XX2030
+            </div>
+            <div class="footer-section">
+                <h2>Social Media</h2>
+                <ul>
+                    <li><a href="https://wa.me/8175012030" target="_blank">WhatsApp: Ashutosh Patel</a></li>
+                    <li><a href="https://www.instagram.com/harshr_5265">Instagram: Harsh Rai</a></li>
+                    <li><a href="#">Facebook: Saurabh Yadav</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copywrites">
+            <p>© 2024 Make A Blood Relation. All rights reserved.<br>
+                Designed by <a href="#">Ashutosh Patel & Harsh Rai</a> (BCA)
+        </div>
+        </p>
+    
+    </footer>
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            document.getElementById('Sdate').innerText = now.toLocaleString();
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            updateDateTime();
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxN8_E4GTVtmHYwLOZXX6RJVirTQnhX4PyvTsB6LxRdfjGdpn6hEbEjPFhvJEX-v-w4/exec';
+        const form = document.forms['google-sheet'];
+            // Include the current date and time in the form data
+            const formData = new FormData(form);
+            formData.append('Sdate', document.getElementById('Sdate').innerText);
+
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(response => {
+                    alert("Thanks for contacting us! We will contact you soon...");
+                })
+                .catch(error => console.error('Error!', error.message));
+        }
+
+        // Update the date and time every second
+        setInterval(updateDateTime, 1000);
+        
+        // Initialize the date and time when the page loads
+        window.onload = updateDateTime;
+    </script>
+</body>
+</html>
+
+    </body>
+    </html>
